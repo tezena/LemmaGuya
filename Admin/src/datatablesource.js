@@ -1,4 +1,4 @@
-export const userColumns = [
+export const  GalleryColumn = [
   { field: "id", headerName: "ID", width: 70 },
   {
     field: "image",
@@ -42,6 +42,154 @@ export const userColumns = [
     },
   },
 ];
+
+export const  PostColumn = [
+  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "image",
+    headerName: "Image",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 100,
+  },
+
+  {
+    field: "description",
+    headerName: "Description",
+    width: 100,
+  },
+  {
+    field: "CreatedAt",
+    headerName: "Created At",
+    width: 250,
+  },
+ 
+];
+
+export const  EducationColumn = [
+  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "image",
+    headerName: "Image",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
+  {
+    field: "imageName",
+    headerName: "Image Name",
+    width: 100,
+  },
+
+  {
+    field: "artist",
+    headerName: "Artist Name",
+    width: 100,
+  },
+  {
+    field: "description",
+    headerName: "Image Description",
+    width: 250,
+  },
+  {
+    field: "type",
+    headerName: "Type",
+    width: 160,
+    renderCell: (params) => {
+      return (
+        <div className={`cellWithStatus ${params.row.status}`}>
+          {params.row.status}
+        </div>
+      );
+    },
+  },
+];
+
+
+export const  ResearchColumn = [
+  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 100,
+  },
+
+  {
+    field: "author",
+    headerName: "Author Name",
+    width: 100,
+  },
+  {
+    field: "pulicationdate",
+    headerName: "Pulication Date",
+    width: 100,
+  },
+  {
+    field: "Summary",
+    headerName: "Summary",
+    width: 250,
+  },
+  {
+    field: "fileURL",
+    headerName: "File URL",
+    width: 250,
+  },{
+    field: "ImageURL",
+    headerName: "Image URL",
+    width: 100,
+  },
+  {
+    field: "Postdate",
+    headerName: "Post Date",
+    width: 250,
+  },
+
+];
+
+export const  EventColumn = [
+  { field: "id", headerName: "ID", width: 70 },
+  
+  {
+    field: "title",
+    headerName: "Title",
+    width: 100,
+  },
+
+  {
+    field: "date",
+    headerName: "Date",
+    width: 100,
+  },
+  {
+    field: "description",
+    headerName: "Image Description",
+    width: 250,
+  },{
+    field: "location",
+    headerName: "Location",
+    width: 250,
+  },
+
+
+];
+
 
 //temporary data
 export const userRows = [

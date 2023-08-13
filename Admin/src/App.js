@@ -1,6 +1,10 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import List from "./pages/list/List";
+import Gallery from "./pages/list/Gallery/List";
+import Education from "./pages/list/Education/List";
+import Post from "./pages/list/Post/List";
+import Event from "./pages/list/Eventlgf/List";
+import Research from "./pages/list/Research/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,7 +24,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="images">
-              <Route index element={<List />} />
+              <Route index element={<Gallery />} />
               <Route path=":userId" element={<Single />} />
               <Route
                 path="new"
@@ -28,7 +32,7 @@ function App() {
               />
             </Route>
             <Route path="education">
-              <Route index element={<List />} />
+              <Route index element={<Education />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
@@ -36,7 +40,7 @@ function App() {
               />
             </Route>
             <Route path="posts">
-              <Route index element={<List />} />
+              <Route index element={<Post />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
@@ -44,7 +48,7 @@ function App() {
               />
             </Route>
             <Route path="events">
-              <Route index element={<List />} />
+              <Route index element={<Event />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
@@ -52,7 +56,7 @@ function App() {
               />
             </Route>
             <Route path="researchs">
-              <Route index element={<List />} />
+              <Route index element={<Research />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
