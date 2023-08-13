@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import images from "../imges";
 import Hove from "./Hove";
 import "./Gallery.css";
+import { Modal } from "react-bootstrap";
+import ModalComponent from "./modal";
 
 function GalleryDisplay() {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+  };
+
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -81,16 +96,39 @@ function GalleryDisplay() {
 
   return (
     <div className="px-5 ">
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column "
-      >
-        {images.map((image, idx) => (
-          <GalleryImage key={idx} image={image} />
-        ))}
-      </Masonry>
-    </div>
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="my-masonry-grid"
+      columnClassName="my-masonry-grid_column "
+    >
+      {images.map((image, idx) => (
+        <div
+          key={idx}
+          onClick={() => openModal(image)} // Open modal when image clicked
+          style={{ cursor: "pointer" }}
+        >
+          <GalleryImage image={image} />
+        </div>
+      ))}
+    </Masonry>
+
+    <ModalComponent
+      image={selectedImage}
+      showModal={showModal}
+      closeModal={closeModal}
+    />
+  </div>
+    // <div className="px-5 ">
+    //   <Masonry
+    //     breakpointCols={breakpointColumnsObj}
+    //     className="my-masonry-grid"
+    //     columnClassName="my-masonry-grid_column "
+    //   >
+    //     {images.map((image, idx) => (
+    //       <GalleryImage key={idx} image={image} />
+    //     ))}
+    //   </Masonry>
+    // </div>
   );
 }
 
