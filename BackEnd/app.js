@@ -1,45 +1,18 @@
-const express = require("express");
+const express = require('express');
+const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require('mongoose');
+const { connectToDatabase } = require('./config/database'); // Adjust the path
+const routes = require('./routes/imagesRoute')
+const imageRoutes = require('./routes/imagesRoute'); 
+// Use the connectToDatabase function to establish the connection
+connectToDatabase();
 
-
+// ... Define your Express app setup, routes, and other code here
 
 const port = process.env.PORT || 3000;
-// const dbOptions = {
-//     useNewUrlParser: true, useUnifiedTopology: true
-// }.then(console.log("db connected")).catch((err)=>console.error(err))
 
-// mongoose.connect(process.env.DB_UR,dbOptions)
-
-
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://tezena:tezenafitahb@cluster0.6u9clce.mongodb.net/?retryWrites=true&w=majority";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("LGF_DB").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
-
-
+app.use(bodyParser.json());
+app.use('/api', imageRoutes);
 app.listen(port, () => {
-  console.log("Server is running on port " + port);
+  console.log(`Server is running on port ${port}`);
 });
