@@ -20,13 +20,15 @@ const imagesModel = mongoose.model("image", imagesSchema);
 
 const blogsSchema = mongoose.Schema({
     imageUrl: String,
-    titel: String,
+    title: String,
     author:String,
     description: String,
     datePosted: {
         type: Date,
         default: Date.now
     },
+}, {
+    versionKey: false // This will prevent the __v field from being added to documents
 })
 
 const blogsModel = mongoose.model("blog", blogsSchema);

@@ -5,6 +5,7 @@ const app = express();
 const { connectToDatabase } = require('./config/database'); // Adjust the path
 const routes = require('./routes/imagesRoute')
 const imageRoutes = require('./routes/imagesRoute'); 
+const blogRoutes = require('./routes/blogsRoute');
 // Use the connectToDatabase function to establish the connection
 connectToDatabase();
 
@@ -15,6 +16,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', imageRoutes);
+app.use("/api/",blogRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

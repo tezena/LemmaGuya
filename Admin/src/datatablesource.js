@@ -1,4 +1,4 @@
-export const  GalleryColumn = [
+export const GalleryColumn = [
   // imageUrl: String,
   // title: String,
   // description: String,
@@ -10,7 +10,6 @@ export const  GalleryColumn = [
     field: "imageUrl",
     headerName: "Image",
     width: 200,
-    
   },
   {
     field: "title",
@@ -42,10 +41,18 @@ export const  GalleryColumn = [
   },
 ];
 
-export const  PostColumn = [
+export const PostColumn = [
+  // imageUrl: String,
+  // title: String,
+  // author:String,
+  // description: String,
+  // datePosted: {
+  //     type: Date,
+  //     default: Date.now
+  // },
   { field: "id", headerName: "ID", width: 70 },
   {
-    field: "image",
+    field: "imageUrl",
     headerName: "Image",
     width: 100,
     renderCell: (params) => {
@@ -62,6 +69,11 @@ export const  PostColumn = [
     headerName: "Title",
     width: 100,
   },
+  {
+    field: "author",
+    headerName: "Author",
+    width: 100,
+  },
 
   {
     field: "description",
@@ -69,14 +81,13 @@ export const  PostColumn = [
     width: 100,
   },
   {
-    field: "CreatedAt",
+    field: "datePosted",
     headerName: "Created At",
     width: 250,
   },
- 
 ];
 
-export const  EducationColumn = [
+export const EducationColumn = [
   { field: "id", headerName: "ID", width: 70 },
   {
     field: "image",
@@ -121,8 +132,7 @@ export const  EducationColumn = [
   },
 ];
 
-
-export const  ResearchColumn = [
+export const ResearchColumn = [
   { field: "id", headerName: "ID", width: 70 },
   {
     field: "title",
@@ -149,7 +159,8 @@ export const  ResearchColumn = [
     field: "fileURL",
     headerName: "File URL",
     width: 250,
-  },{
+  },
+  {
     field: "ImageURL",
     headerName: "Image URL",
     width: 100,
@@ -159,12 +170,11 @@ export const  ResearchColumn = [
     headerName: "Post Date",
     width: 250,
   },
-
 ];
 
-export const  EventColumn = [
+export const EventColumn = [
   { field: "id", headerName: "ID", width: 70 },
-  
+
   {
     field: "title",
     headerName: "Title",
@@ -180,15 +190,13 @@ export const  EventColumn = [
     field: "description",
     headerName: "Image Description",
     width: 250,
-  },{
+  },
+  {
     field: "location",
     headerName: "Location",
     width: 250,
   },
-
-
 ];
-
 
 //temporary data
 export const userRows = [
