@@ -1,26 +1,25 @@
 export const  GalleryColumn = [
+  // imageUrl: String,
+  // title: String,
+  // description: String,
+  // artist_name: String,
+  // type: String,
+  // artist_id: mongoose.Schema.Types.ObjectId,
   { field: "id", headerName: "ID", width: 70 },
   {
-    field: "image",
+    field: "imageUrl",
     headerName: "Image",
-    width: 100,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.username}
-        </div>
-      );
-    },
+    width: 200,
+    
   },
   {
-    field: "imageName",
+    field: "title",
     headerName: "Image Name",
     width: 100,
   },
 
   {
-    field: "artist",
+    field: "artist_name",
     headerName: "Artist Name",
     width: 100,
   },

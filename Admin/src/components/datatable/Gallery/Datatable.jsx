@@ -2,14 +2,34 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { GalleryColumn, userRows } from "../../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  useEffect(() => {
+    fetch("/api/getimages")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data); // Update the state with fetched data
+      });
+  }, []);
+console.log(data)
+const handleDelete = (id) => {
+  // Send a DELETE request to the server to remove the image
+  fetch(`/api/images/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then(() => {
+      // Remove the deleted image from the state
+      setData(data.filter((item) => item.id !== id));
+    })
+    .catch((error) => {
+      console.error("Error deleting image:", error);
+    });
+};
+
 
   const actionColumn = [
     {

@@ -4,10 +4,13 @@ const mongoose = require("mongoose")
 
 const imagesSchema = mongoose.Schema({
     imageUrl: String,
-    titel: String,
+    title: String,
     description: String,
     artist_name: String,
-    artist_id: mongoose.Schema.Types.ObjectId,
+    type: String,
+   
+}, {
+    versionKey: false // This will prevent the __v field from being added to documents
 })
 
 const imagesModel = mongoose.model("image", imagesSchema);

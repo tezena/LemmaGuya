@@ -17,15 +17,27 @@ exports.createImage = async (req, res) => {
 
 // Get all gallery images
 exports.getAllImages = async (req, res) => {
-    try {
-      console.log("erdcdsjh")
-      const images = await imagesModel.find();
-      console.log(images); // Add this line
-    res.json(images);
+  try {
+    const images = await imagesModel.find();
+    if (!images || images.length === 0) {
+      return res.status(404).json({ message: "No images found" });
+    }
+
+    const response = images.map((image) => ({
+      id: image._id,
+      imageUrl: image.imageUrl,
+      title: image.title,
+      description: image.description,
+      artist_name: image.artist_name,
+      type: image.type,
+    }));
+
+    res.json(response);
   } catch (error) {
     res.status(500).json({ message: "Error fetching images", error });
   }
 };
+
 
 // Get a specific gallery image by ID
 exports.getImageById = async (req, res) => {

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const app = express();
 const { connectToDatabase } = require('./config/database'); // Adjust the path
 const routes = require('./routes/imagesRoute')
@@ -9,8 +10,9 @@ connectToDatabase();
 
 // ... Define your Express app setup, routes, and other code here
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', imageRoutes);
 app.listen(port, () => {
