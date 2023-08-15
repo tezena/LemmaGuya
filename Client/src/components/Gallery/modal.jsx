@@ -6,7 +6,7 @@ const ModalComponent = ({ image, showModal, closeModal }) => {
     return (   
       <Modal show={showModal} onHide={closeModal} centered size={"lg"}>
         <Modal.Body>
-          <img src={image.src} alt={image.alt} className="img-fluid" />
+          <img src={image.imageUrl} alt={image.title} className="img-fluid" />
         </Modal.Body>
       </Modal>
     );

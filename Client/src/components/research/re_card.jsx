@@ -1,11 +1,11 @@
 import React from "react";
 
-function Card({ image, title, text}) {
+function ResCard({ image, title, text}) {
   return (
     <div class="col-md-12">
       <div class="row g-0 border rounded overflow-hidden flex-col mb-4 shadow-sm h-md-250 position-relative">
       <div class="col-auto d-none d-md-block p-3 ">
-          <img src={image} class="bd-placeholder-img border rounded-3"/>
+          <img src={image}  alt={""}class="bd-placeholder-img border rounded-3 w-100"/>
         </div>
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success">Post</strong>
@@ -25,4 +25,4 @@ function Card({ image, title, text}) {
   );
 }
 
-export default Card;
+export default ResCard;

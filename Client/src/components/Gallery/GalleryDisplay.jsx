@@ -115,7 +115,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="px-5 ">
+    <div className="px-5" >
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="my-masonry-grid"
