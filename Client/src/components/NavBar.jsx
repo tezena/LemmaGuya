@@ -4,13 +4,13 @@ import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
 function Navigation() {
   return (
     <Navbar bg="light" expand="lg" className="justify-content-lg-center">
-      <Container >
+      <Container className='position-relative' >
         <Navbar.Brand href="/">
           <img src="/logo.png" alt="Logo" className="logo-img" />
         </Navbar.Brand>
 
         <>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav  bg-black" className='text-black' />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">
             <Nav.Link href="/">Home</Nav.Link>
@@ -22,9 +22,10 @@ function Navigation() {
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>
-        <Button variant="warning text-light">Donate</Button>
+   
 
-          </Nav>
+            </Nav>
+            <Button variant="warning text-light" className=''>Donate</Button>
         </Navbar.Collapse>
         </>
       </Container>

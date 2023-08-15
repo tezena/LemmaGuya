@@ -6,8 +6,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 const HeroSection = () => {
   return (
       <div className="hero-section h-100 text-white d-flex align-items-center hero-background mb-5 " style={{
-          backgroundImage: 'url(herobg.jpg)', opacity: 1,
-          backgroundPosition: "center", backgroundSize:"cover" ,height:"400px" , paddingBottom:"100px",paddingTop:"60px" }}>
+          backgroundImage: 'url(assets/images/lemma/l8.jpg)', opacity: 1,
+          backgroundPosition: "center", backgroundSize:"cover" ,height:"600px" , paddingBottom:"100px",paddingTop:"60px" }}>
       <Container className='mt-o'>
         <Row className="justify-content-center w-100">
             <h1 className="hero-title display-4 w-100  text-warning">Art That Speaks to Your Soul</h1>

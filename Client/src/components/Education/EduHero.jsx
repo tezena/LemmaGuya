@@ -13,20 +13,20 @@ function HeroSection() {
     }, []);
   return (
     <div style={{
-      backgroundImage: 'url(edubg.jpg)', opacity: 1,
+      backgroundImage: 'url(assets/images/lemma/l16.jpg)', opacity: 1,
       backgroundPosition: "center", backgroundSize:"cover",height:"400px" }} className="overflow-hidden ">
 
       <div className="hero-bg text-light  pb-5" style={{ height: "100%" }}>
         <div className="row p-4 pb-0  pt-lg-5 h-100 align-items-center rounded-3 border shadow-lg mx-auto">
         <div className=" col-md-5 col-12">
-            <div className="row h-25  pb-1 ">
+            {/* <div className="row h-25  pb-1 ">
             <div className={`col-6 ${isLoaded ? 'img-left' : ''}`}>
-                <img src="/assets/images/img3.jpg" alt="" className="img-fluid" />
+                <img src="assets/images/lemma/l8.jpg" alt="" className="img-fluid" />
               </div>
               <div className={`col-6 ${isLoaded ? 'img-right' : ''}`}>
-                <img src="/assets/images/img3.jpg" alt="" className=" img-fluid" />
+                <img src="assets/images/lemma/l12.jpg" alt="" className=" img-fluid" />
               </div>
-            </div>
+            </div> */}
           
           </div>
           <div className="col-1">

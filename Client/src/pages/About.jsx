@@ -10,7 +10,7 @@ export function Contact() {
                     <p>In ullamco nulla aliqua sit et proident sit laboris ut quis consequat nulla. Ea aliquip nostrud duis ullamco cupidatat tempor sunt deserunt reprehenderit deserunt veniam.</p>
                 </div>
                 <div className="col-md-6">
-                    <img src="/herobg.jpg" alt="" className="w-100 m-2" />
+                    <img src="/assets/images/lemma/l9.jpg" alt="" className="w-100 m-2" style={{height:"400px" ,width:"200px"}} />
                 </div>
             </div>
             
@@ -35,7 +35,7 @@ export function Contact() {
             
             <div className="row justify-content-center gap-4">
                 <div className="col-md-6">
-                    <img src="/herobg.jpg" alt="" className="w-75 m-2" />
+                    <img src="assets/images/lemma/l11.jpg" alt="" className="w-75 m-2" />
                 </div>
                 <div className="col-md-6">
                     <h2>Lorem Ipsum</h2>
