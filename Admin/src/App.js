@@ -13,6 +13,7 @@ import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
+import LoginComponent from "./pages/login/Login";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -71,6 +72,9 @@ function App() {
                 path="new"
                 element={<New inputs={productInputs} title="Add New Product" />}
               />
+            </Route>
+            <Route path="login">
+              <Route index element={<LoginComponent />} />
             </Route>
           </Route>
         </Routes>
