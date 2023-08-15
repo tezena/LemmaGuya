@@ -133,6 +133,16 @@ export const EducationColumn = [
 ];
 
 export const ResearchColumn = [
+  // title: String,
+  //   author: String,
+  //   publicationDate: Date,
+  //   summary: String,
+  //   fileUrl: String,
+  //   imageUrl: String,
+  //   postedDate: {
+  //       type: Date,
+  //       default:Date.now,
+  //   }
   { field: "id", headerName: "ID", width: 70 },
   {
     field: "title",
@@ -146,41 +156,66 @@ export const ResearchColumn = [
     width: 100,
   },
   {
-    field: "pulicationdate",
-    headerName: "Pulication Date",
+    field: "publicationDate",
+    headerName: "Publication Date",
     width: 100,
   },
   {
-    field: "Summary",
+    field: "summary",
     headerName: "Summary",
     width: 250,
   },
   {
-    field: "fileURL",
+    field: "fileUrl",
     headerName: "File URL",
     width: 250,
   },
   {
-    field: "ImageURL",
+    field: "imageUrl",
     headerName: "Image URL",
     width: 100,
   },
   {
-    field: "Postdate",
+    field: "postedDate",
     headerName: "Post Date",
     width: 250,
   },
 ];
 
 export const EventColumn = [
+  // imageUrl: String,
+  // title: String,
+  // description: String,
+  // date: Date,
+  // location:String,
+  // datePosted: {
+  //     type: Date,
+  //     default: Date.now
+  // },
   { field: "id", headerName: "ID", width: 70 },
-
+  {
+    field: "imageUrl",
+    headerName: "Image",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
   {
     field: "title",
     headerName: "Title",
     width: 100,
   },
-
+  {
+    field: "location",
+    headerName: "Location",
+    width: 100,
+  },
   {
     field: "date",
     headerName: "Date",
@@ -188,12 +223,12 @@ export const EventColumn = [
   },
   {
     field: "description",
-    headerName: "Image Description",
-    width: 250,
+    headerName: "Description",
+    width: 100,
   },
   {
-    field: "location",
-    headerName: "Location",
+    field: "datePosted",
+    headerName: "Created At",
     width: 250,
   },
 ];
