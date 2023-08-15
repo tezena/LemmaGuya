@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react";
+import { ReactDOM ,useEffect} from "react";
 import BlogCard from "./Card";
 
 
@@ -7,13 +7,26 @@ import BlogCard from "./Card";
 
 
 function DisplayCard(props) {  
-  const Data = props.data;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {  
+    fetch("http://localhost:5000/api/getblogs")
+    .then((response) => response.json())
+    .then((jsonData) => {
+      setData(jsonData); // Update the state with fetched data
+      console.log(jsonData); // Log the fetched data
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }, []);
+ 
     return (
       <div className="w-100 h-100  d-flex-col justify-content-center align-items-center  py-3" >
         {
-          Data.map((item) => {
+          data.map((item) => {
             return (
-              <BlogCard title={item.title} image={item.image} buttonText={item.btnText} text={ item.note} />
+              <BlogCard title={item.title} image={item.imageUrl} buttonText={item.btnText} text={ item.describtion} />
             )
           })
         }
