@@ -37,9 +37,12 @@ const blogsModel = mongoose.model("blog", blogsSchema);
 
 const artistSchema = mongoose.Schema({
     name: String,
+    imageUrl:String,
     bio: String,
     phone: String,
     location:String,
+},{
+    versionKey: false // This will prevent the __v field from being added to documents
 })
 
 const artistModel = mongoose.model("artist", artistSchema);

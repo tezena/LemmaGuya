@@ -29,12 +29,19 @@ const Sidebar = () => {
           </li>
           </Link>
           <p className="title">LISTS</p>
+          <Link to="/artists" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>Artist</span>
+            </li>
+          </Link>
           <Link to="/images" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Images</span>
             </li>
           </Link>
+         
           <Link to="/education" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />

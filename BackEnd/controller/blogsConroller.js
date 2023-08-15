@@ -1,6 +1,5 @@
 const {blogsModel} = require ("../models/models.js")
 
-// Create a new gallery Blog
 exports.createBlog = async (req, res) => {
   try {
     const newBlog = new blogsModel(req.body);
@@ -18,7 +17,6 @@ exports.getAllBlogs = async (req, res) => {
   try {
     const blogs = await blogsModel.find();
 
-    // Structure the response to match the example image response
     const response = blogs.map((blog) => ({
       id: blog._id,
       imageUrl: blog.imageUrl,
@@ -35,7 +33,6 @@ exports.getAllBlogs = async (req, res) => {
 };
 
 
-// Get a specific gallery Blog by ID
 exports.getBlogById = async (req, res) => {
   try {
     const blogId = req.params.id;
@@ -49,7 +46,6 @@ exports.getBlogById = async (req, res) => {
   }
 };
 
-// Update a gallery Blog by ID
 exports.updateBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
@@ -63,7 +59,6 @@ exports.updateBlog = async (req, res) => {
   }
 };
 
-// Delete a gallery Blog by ID
 exports.deleteBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
