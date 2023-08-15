@@ -1,7 +1,7 @@
 const {eventsModel} = require ("../models/models.js")
 
 // Create a new gallery image
-exports.createImage = async (req, res) => {
+exports.createEvent = async (req, res) => {
   try {
     const newImage = new eventsModel(req.body);
     const savedImage = await newImage.save();
@@ -12,7 +12,7 @@ exports.createImage = async (req, res) => {
 };
 
 // Get all gallery images
-exports.getAllImages = async (req, res) => {
+exports.getAllEvents = async (req, res) => {
   try {
     const images = await eventsModel.find();
     res.json(images);
@@ -22,7 +22,7 @@ exports.getAllImages = async (req, res) => {
 };
 
 // Get a specific gallery image by ID
-exports.getImageById = async (req, res) => {
+exports.getEventById = async (req, res) => {
   try {
     const imageId = req.params.id;
     const image = await eventsModel.findById(imageId);
@@ -36,7 +36,7 @@ exports.getImageById = async (req, res) => {
 };
 
 // Update a gallery image by ID
-exports.updateImage = async (req, res) => {
+exports.updateEvent = async (req, res) => {
   try {
     const imageId = req.params.id;
     const updatedImage = await eventsModel.findByIdAndUpdate(imageId, req.body, { new: true });
@@ -50,7 +50,7 @@ exports.updateImage = async (req, res) => {
 };
 
 // Delete a gallery image by ID
-exports.deleteImage = async (req, res) => {
+exports.deleteEvent = async (req, res) => {
   try {
     const imageId = req.params.id;
     const deletedImage = await eventsModel.findByIdAndDelete(imageId);

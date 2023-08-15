@@ -49,11 +49,18 @@ const artistModel = mongoose.model("artist", artistSchema);
 
 const eventsSchema = mongoose.Schema({
     imageUrl: String,
-    titel: String,
+    title: String,
     description: String,
     date: Date,
     location:String,
-})
+    datePosted: {
+        type: Date,
+        default: Date.now
+    },
+}, {
+    versionKey: false // This will prevent the __v field from being added to documents
+}
+)
 
 const eventsModel = mongoose.model("event", eventsSchema);
 
