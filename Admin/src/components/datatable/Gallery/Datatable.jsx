@@ -7,8 +7,8 @@ import { useState,useEffect } from "react";
 const Datatable = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/getimages")
+  useEffect(() => {  
+      fetch("/api/getimages")
       .then((response) => response.json())
       .then((data) => {
         setData(data); // Update the state with fetched data
@@ -58,7 +58,7 @@ const handleDelete = (id) => {
       <div className="datatableTitle">
        <input type="text" placeholder="search" />
         <Link to="/images/new" className="link">
-          Add New
+          Add New 
         </Link>
       </div>
       <DataGrid
