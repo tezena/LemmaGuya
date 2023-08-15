@@ -1,16 +1,41 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { ResearchColumn, userRows } from "../../../datatablesource";
+import { ResearchColumn } from "../../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState([]);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
-
+  useEffect(() => {
+    fetch("/api/getresearches")
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = data.map((item) => ({
+          ...item,
+          id: item._id // Rename _id to id
+        }));
+        setData(formattedData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  
+const handleDelete = (id) => {
+  // Send a DELETE request to the server to remove the blog post
+  fetch(`/api/deleteresearch/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then(() => {
+      // Remove the deleted blog post from the state
+      setData(data.filter((item) => item.id !== id));
+    })
+    .catch((error) => {
+      console.error("Error deleting blog post:", error);
+    });
+};
   const actionColumn = [
     {
       field: "action",
