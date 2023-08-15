@@ -14,7 +14,7 @@ function HeroSection() {
     }, []);
   return (
     <div style={{
-      backgroundImage: 'url(herobg.jpg)', opacity: 1,
+      backgroundImage: 'url(assets/images/lemma/l5.jpg)', opacity: 1,
       backgroundPosition: "center", backgroundSize:"cover" }}>
 
       <div className="hero-bg text-light" style={{ height: "100vh" }}>
@@ -39,10 +39,10 @@ function HeroSection() {
           <div className="col-lg-6">
             <div className="row h-100">
             <div className={`col-6 ${isLoaded ? 'img-left' : ''}`}>
-                <img src="/assets/images/img1.jpg" alt="" className="img-fluid" />
+                <img src="assets/images/lemma/l1.jpg" alt="" className="img-fluid" />
               </div>
               <div className={`col-6 ${isLoaded ? 'img-right' : ''}`}>
-                <img src="/assets/images/img2.jpg" alt="" className=" img-fluid" />
+                <img src="assets/images/lemma/l2.jpg" alt="" className=" img-fluid" />
               </div>
             </div>
           

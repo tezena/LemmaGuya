@@ -17,7 +17,7 @@ const HeroSection = () => {
           placeholder=""
           aria-label="search"
                           aria-describedby="basic-addon2"
-                          className='bg-white bg-opacity-50 border border-2'
+                          className='bg-white bg-opacity-50 border border-2  '
         />
         <Button variant="warning text-light" id="button-addon2"  className='fw-semiboldb w-10' >
           Search
@@ -26,6 +26,9 @@ const HeroSection = () => {
             <h6 className="fw-light px-5 opacity-75">Immerse yourself in an extraordinary collection of artworks that resonate with your deepest emotions. </h6>
         </Row>
       </Container>
+      <div className=' ' style={{height:"200px"}}>
+
+      </div>
     </div>
   );
 };

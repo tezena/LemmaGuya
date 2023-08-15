@@ -25,7 +25,7 @@ import Slider from 'react-slick';
 
 function Carousel(){
     return(
-      <div className='  w-100 position-relative ' style={{zIndex:"1"}}>
+      <div className='  w-100 position-relative pt-3' style={{zIndex:"1"}}>
       <Slider {...settings}>
       {slidesData.map((item,index)=>{return <CarouselBanner img={item.url}/>})}
     </Slider>

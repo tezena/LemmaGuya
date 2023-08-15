@@ -1,19 +1,18 @@
 const slidesData=[
-    {url:"assets/images/img3.jpg",
+    {url:"assets/images/lemma/l5.jpg",
       title:"Education",
       message:"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      butnColor:"#0008C1"
     } ,
      {
-        url:"assets/images/img2.jpg" ,
+        url:"assets/images/lemma/l4.jpg" ,
      title:"Research",
      message:"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-     butnColor:'#27E1C1'},
+   },
      {
-        url:"assets/images/img1.jpg",
+        url:"assets/images/lemma/l3.jpg",
       title:"Lorem ipsum",
       message:"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-      butnColor:'#E0144C'},
+      },
    ]
 
 export default slidesData;
