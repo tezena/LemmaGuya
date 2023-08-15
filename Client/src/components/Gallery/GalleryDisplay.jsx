@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Masonry from "react-masonry-css";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -8,7 +8,27 @@ import "./Gallery.css";
 import { Modal } from "react-bootstrap";
 import ModalComponent from "./modal";
 
+
+
+
 function GalleryDisplay() {
+  const [data, setData] = useState([]);
+
+useEffect(() => {  
+  fetch("http://localhost:5000/api/getimages")
+  .then((response) => response.json())
+  .then((jsonData) => {
+    setData(jsonData); // Update the state with fetched data
+    console.log(jsonData); // Log the fetched data
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+}, []);
+ 
+
+
+
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -70,8 +90,8 @@ function GalleryDisplay() {
           className="img-container"
         >
           <img
-            src={image.src}
-            alt={image.alt}
+            src={image.imageUrl}
+            alt={image.title}
             className="img-fluid"
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
@@ -101,7 +121,7 @@ function GalleryDisplay() {
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column "
     >
-      {images.map((image, idx) => (
+      {data.map((image, idx) => (
         <div
           key={idx}
           onClick={() => openModal(image)} // Open modal when image clicked
