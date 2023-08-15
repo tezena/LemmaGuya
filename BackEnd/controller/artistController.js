@@ -1,64 +1,74 @@
-const {artistModel} = require ("../models/models.js")
+const {artistModel} = require('../models/models.js'); // Make sure to provide the correct path
 
-// Create a new gallery image
-exports.createImage = async (req, res) => {
+// Create a new artist
+exports.createArtist = async (req, res) => {
   try {
-    const newImage = new artistModel(req.body);
-    const savedImage = await newImage.save();
-    res.json(savedImage);
+    const newArtist = new artistModel(req.body);
+    const savedArtist = await newArtist.save();
+
+    res.status(201).json(savedArtist);
   } catch (error) {
-    res.status(500).json({ message: 'Error creating image', error });
+    res.status(500).json({ message: "Error creating artist", error });
   }
 };
 
-// Get all gallery images
-exports.getAllImages = async (req, res) => {
+// Get all artists
+exports.getAllArtists = async (req, res) => {
   try {
-    const images = await artistModel.find();
-    res.json(images);
+    const artists = await artistModel.find();
+
+    res.json(artists);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching images', error });
+    res.status(500).json({ message: "Error fetching artists", error });
   }
 };
 
-// Get a specific gallery image by ID
-exports.getImageById = async (req, res) => {
+// Get a specific artist by ID
+exports.getArtistById = async (req, res) => {
   try {
-    const imageId = req.params.id;
-    const image = await artistModel.findById(imageId);
-    if (!image) {
-      return res.status(404).json({ message: 'Image not found' });
+    const artistId = req.params.id;
+    const artist = await artistModel.findById(artistId);
+
+    if (!artist) {
+      return res.status(404).json({ message: "Artist not found" });
     }
-    res.json(image);
+
+    res.json(artist);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching image', error });
+    res.status(500).json({ message: "Error fetching artist", error });
   }
 };
 
-// Update a gallery image by ID
-exports.updateImage = async (req, res) => {
+// Update an artist by ID
+exports.updateArtistById = async (req, res) => {
   try {
-    const imageId = req.params.id;
-    const updatedImage = await artistModel.findByIdAndUpdate(imageId, req.body, { new: true });
-    if (!updatedImage) {
-      return res.status(404).json({ message: 'Image not found' });
+    const artistId = req.params.id;
+    const updatedArtist = await artistModel.findByIdAndUpdate(artistId, req.body, {
+      new: true, // Return the updated artist
+    });
+
+    if (!updatedArtist) {
+      return res.status(404).json({ message: "Artist not found" });
     }
-    res.json(updatedImage);
+
+    res.json(updatedArtist);
   } catch (error) {
-    res.status(500).json({ message: 'Error updating image', error });
+    res.status(500).json({ message: "Error updating artist", error });
   }
 };
 
-// Delete a gallery image by ID
-exports.deleteImage = async (req, res) => {
+// Delete an artist by ID
+exports.deleteArtistById = async (req, res) => {
   try {
-    const imageId = req.params.id;
-    const deletedImage = await artistModel.findByIdAndDelete(imageId);
-    if (!deletedImage) {
-      return res.status(404).json({ message: 'Image not found' });
+    const artistId = req.params.id;
+    const deletedArtist = await artistModel.findByIdAndDelete(artistId);
+
+    if (!deletedArtist) {
+      return res.status(404).json({ message: "Artist not found" });
     }
-    res.json({ message: 'Image deleted successfully' });
+
+    res.json({ message: "Artist deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: 'Error deleting image', error });
+    res.status(500).json({ message: "Error deleting artist", error });
   }
 };

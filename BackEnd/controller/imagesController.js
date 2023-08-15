@@ -1,9 +1,7 @@
 const { imagesModel } = require("../models/models.js");
 
-// Create a new gallery image
 exports.createImage = async (req, res) => {
     try {
-      console.log("fddsgdfg")
     const newImage = new imagesModel(req.body);
     const savedImage = await newImage.save();
     // Fetch the full image data from the database, projecting all fields
@@ -15,7 +13,6 @@ exports.createImage = async (req, res) => {
   }
 };
 
-// Get all gallery images
 exports.getAllImages = async (req, res) => {
   try {
     const images = await imagesModel.find();
@@ -39,7 +36,6 @@ exports.getAllImages = async (req, res) => {
 };
 
 
-// Get a specific gallery image by ID
 exports.getImageById = async (req, res) => {
   try {
     const imageId = req.params.id;
@@ -53,7 +49,6 @@ exports.getImageById = async (req, res) => {
   }
 };
 
-// Update a gallery image by ID
 exports.updateImage = async (req, res) => {
   try {
     const imageId = req.params.id;
@@ -71,7 +66,6 @@ exports.updateImage = async (req, res) => {
   }
 };
 
-// Delete a gallery image by ID
 exports.deleteImage = async (req, res) => {
   try {
     const imageId = req.params.id;

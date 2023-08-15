@@ -5,11 +5,19 @@ export const GalleryColumn = [
   // artist_name: String,
   // type: String,
   // artist_id: mongoose.Schema.Types.ObjectId,
-  { field: "id", headerName: "ID", width: 70 },
+  { field: "id", headerName: "ID", width: 220 },
   {
     field: "imageUrl",
     headerName: "Image",
-    width: 200,
+    width: 80,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.imageUrl} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
   },
   {
     field: "title",
@@ -86,7 +94,48 @@ export const PostColumn = [
     width: 250,
   },
 ];
+export const ArtistColumn = [
+  // name: String,
+  // bio: String,
+  // phone: String,
+  // location:String,
 
+  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "imageUrl",
+    headerName: "Image",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 100,
+  },
+  {
+    field: "bio",
+    headerName: "Bio",
+    width: 100,
+  },
+
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 100,
+  },
+  {
+    field: "location",
+    headerName: "Location",
+    width: 250,
+  },
+];
 export const EducationColumn = [
   { field: "id", headerName: "ID", width: 70 },
   {

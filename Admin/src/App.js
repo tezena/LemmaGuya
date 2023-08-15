@@ -5,6 +5,7 @@ import Education from "./pages/list/Education/List";
 import Post from "./pages/list/Post/List";
 import Event from "./pages/list/Eventlgf/List";
 import Research from "./pages/list/Research/List";
+import Artist from "./pages/list/Artist/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -57,6 +58,14 @@ function App() {
             </Route>
             <Route path="researchs">
               <Route index element={<Research />} />
+              <Route path=":productId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={productInputs} title="Add New Product" />}
+              />
+            </Route>
+            <Route path="artists">
+              <Route index element={<Artist />} />
               <Route path=":productId" element={<Single />} />
               <Route
                 path="new"
