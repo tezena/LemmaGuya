@@ -11,15 +11,27 @@ exports.createEvent = async (req, res) => {
   }
 };
 
-// Get all gallery images
 exports.getAllEvents = async (req, res) => {
   try {
-    const images = await eventsModel.find();
-    res.json(images);
+    const events = await eventsModel.find();
+
+    // Structure the response to match the example image response
+    const response = events.map((event) => ({
+      id: event._id,
+      imageUrl: event.imageUrl,
+      title: event.title,
+      location: event.location,
+      date: event.date,
+      description: event.description,
+      datePosted: event.datePosted,
+    }));
+
+    res.json(response);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching images', error });
+    res.status(500).json({ message: 'Error fetching blogs', error });
   }
 };
+
 
 // Get a specific gallery image by ID
 exports.getEventById = async (req, res) => {

@@ -173,14 +173,39 @@ export const ResearchColumn = [
 ];
 
 export const EventColumn = [
+  // imageUrl: String,
+  // title: String,
+  // description: String,
+  // date: Date,
+  // location:String,
+  // datePosted: {
+  //     type: Date,
+  //     default: Date.now
+  // },
   { field: "id", headerName: "ID", width: 70 },
-
+  {
+    field: "imageUrl",
+    headerName: "Image",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {params.row.username}
+        </div>
+      );
+    },
+  },
   {
     field: "title",
     headerName: "Title",
     width: 100,
   },
-
+  {
+    field: "location",
+    headerName: "Location",
+    width: 100,
+  },
   {
     field: "date",
     headerName: "Date",
@@ -188,12 +213,12 @@ export const EventColumn = [
   },
   {
     field: "description",
-    headerName: "Image Description",
-    width: 250,
+    headerName: "Description",
+    width: 100,
   },
   {
-    field: "location",
-    headerName: "Location",
+    field: "datePosted",
+    headerName: "Created At",
     width: 250,
   },
 ];
