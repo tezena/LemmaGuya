@@ -1,6 +1,6 @@
 import "./list.scss"
 import Sidebar from "../../../components/sidebar/Sidebar"
-import Datatable from "../../../components/datatable/Artist/Datatable"
+import Datatable from "../../../components/datatable/Research/Datatable"
 
 const List = () => {
   return (

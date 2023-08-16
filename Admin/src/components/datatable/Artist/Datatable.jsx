@@ -4,6 +4,9 @@ import { ArtistColumn } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import  AddArtistModal from "./AddArtistModal";
+import { Button } from "@mui/material";
+import "./AddArtistModal.scss"
+
 
 const Datatable = () => {
   const [data, setData] = useState([]);
@@ -31,9 +34,6 @@ const Datatable = () => {
     setAddModalOpen(true);
   };
 
-  const handleAddModalClose = () => {
-    setAddModalOpen(false);
-  };
 
   const handleAddArtist = (newArtist) => {
     // Send a POST request to the server to add the new artist
@@ -47,7 +47,7 @@ const Datatable = () => {
       .then((response) => response.json())
       .then((addedArtist) => {
         setData([...data, addedArtist]);
-        handleAddModalClose();
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error adding artist:", error);
@@ -58,7 +58,7 @@ const Datatable = () => {
   
 const handleDelete = (id) => {
   // Send a DELETE request to the server to remove the blog post
-  fetch(`/api/deleteresearch/${id}`, {
+  fetch(`/api/artists/${id}`, {
     method: "DELETE",
   })
     .then((response) => response.json())
@@ -98,9 +98,10 @@ const handleDelete = (id) => {
     <div className="datatable">
       <div className="datatableTitle">
        <input type="text" placeholder="search" />
-        <button onClick={handleAddModalOpen} className="link">
-        Add New Artist
-      </button>
+    
+      <Button className="link" onClick={handleAddModalOpen}>
+          Add New Artist
+        </Button>
       </div>
       <DataGrid
         className="datagrid"
@@ -110,12 +111,8 @@ const handleDelete = (id) => {
         rowsPerPageOptions={[9]}
         checkboxSelection
       />
-      <button onClick={handleAddModalOpen} className="link">
-        Add New Artist
-      </button>
       <AddArtistModal
         open={isAddModalOpen}
-        onClose={handleAddModalClose}
         onAdd={handleAddArtist}
       />
     </div>

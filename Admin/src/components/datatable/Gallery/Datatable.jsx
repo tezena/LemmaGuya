@@ -1,36 +1,67 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { GalleryColumn,  } from "../../../datatablesource";
+import { EventColumn } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
+import  AddNewModal from "./AddNewModal";
+import { Button } from "@mui/material";
+
 
 const Datatable = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {  
-      fetch("/api/getimages")
+  useEffect(() => {
+    fetch("/api/getimages")
       .then((response) => response.json())
       .then((data) => {
-        setData(data); // Update the state with fetched data
+      
+        setData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }, []);
-console.log(data)
+
+
+  const [isAddModalOpen, setAddModalOpen] = useState(false);
+
+
+
+  const handleAdd = (newData) => {
+    // Send a POST request to the server to add the new artist
+    fetch("/api/images", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((response) => response.json())
+      .then((addedData) => {
+        setData([...data, addedData]);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error adding images:", error);
+      });
+  };
+
+
+  
 const handleDelete = (id) => {
-  // Send a DELETE request to the server to remove the image
+  // Send a DELETE request to the server to remove the blog post
   fetch(`/api/images/${id}`, {
     method: "DELETE",
   })
     .then((response) => response.json())
     .then(() => {
-      // Remove the deleted image from the state
+      // Remove the deleted blog post from the state
       setData(data.filter((item) => item.id !== id));
     })
     .catch((error) => {
-      console.error("Error deleting image:", error);
+      console.error("Error deleting images:", error);
     });
 };
-
-
   const actionColumn = [
     {
       field: "action",
@@ -53,21 +84,29 @@ const handleDelete = (id) => {
       },
     },
   ];
+
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
        <input type="text" placeholder="search" />
-        <Link to="/images/new" className="link">
-          Add New 
-        </Link>
+    
+       <Button onClick={() => setAddModalOpen(true)}>Add New</Button>
+     
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={GalleryColumn.concat(actionColumn)}
+        columns={EventColumn.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
+        getRowId={(row) => row.id} 
+      />
+      <AddNewModal
+        open={isAddModalOpen}
+        onSubmit={handleAdd}
+        onClose={() => setAddModalOpen(false)}
       />
     </div>
   );

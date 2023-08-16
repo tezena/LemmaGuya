@@ -54,7 +54,7 @@ const eventsSchema = mongoose.Schema({
     imageUrl: String,
     title: String,
     description: String,
-    date: Date,
+    date: String,
     location:String,
     datePosted: {
         type: Date,

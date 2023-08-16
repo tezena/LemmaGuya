@@ -76,3 +76,12 @@
     }
   }
 }
+
+.MuiButton-contained {
+  background-color: #674501;
+  color: white;
+
+  &:hover {
+    background-color: #ffab02;
+  }
+}

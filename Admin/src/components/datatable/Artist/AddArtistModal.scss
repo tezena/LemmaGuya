@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2rem;
   
     .modalContent {
         background-color: white;
@@ -18,11 +19,11 @@
       }
   
       .MuiButton-contained {
-        background-color: #007bff;
+        background-color: #674501;
         color: white;
   
         &:hover {
-          background-color: #0056b3;
+          background-color: #ffab02;
         }
       }
     }

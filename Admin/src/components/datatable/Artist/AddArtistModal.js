@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close"
 import "./AddArtistModal.scss"; // Your custom styles
 
 const AddArtistModal = ({ open, onClose, onAdd }) => {
@@ -21,12 +22,14 @@ const AddArtistModal = ({ open, onClose, onAdd }) => {
 
   const handleAdd = () => {
     onAdd(artistInfo);
-    onClose();
   };
 
   return (
-    <Modal open={open} onClose={onClose} className="addArtistModal">
+    <Modal open={open}  className="addArtistModal">
       <div className="modalContent">
+      <div className="closeIcon" onClick={onClose}>
+          <CloseIcon />
+        </div>
         <h2>Add New Artist</h2>
         <TextField
           label="Name"
