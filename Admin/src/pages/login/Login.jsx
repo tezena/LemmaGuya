@@ -6,6 +6,7 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="login-form">
         <div className="form-content">
+          <h1>LGF Admin</h1>
           <h3>Login</h3>
           <form>
             <div className="form-group">
@@ -25,7 +26,7 @@ const LoginPage = () => {
       <div className="login-image">
         <div className="image-card">
           {/* Your image content */}
-          <img src="./login.jpg" alt="Login" className="img-fluid" />
+          <img src="./login.svg" alt="Login" className="img-fluid" />
         </div>
       </div>
     </div>

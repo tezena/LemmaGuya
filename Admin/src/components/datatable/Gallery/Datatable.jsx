@@ -1,6 +1,6 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { EventColumn } from "../../../datatablesource";
+import { GalleryColumn } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import  AddNewModal from "./AddNewModal";
@@ -97,7 +97,7 @@ const handleDelete = (id) => {
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={EventColumn.concat(actionColumn)}
+        columns={GalleryColumn.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

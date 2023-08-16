@@ -1,11 +1,11 @@
 import React from "react";
 
-function Card({ image, title, text}) {
+function Card({ image, title, text }) {
   return (
     <div class="col-md-12">
       <div class="row g-0 border rounded overflow-hidden flex-col mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col-auto d-none d-md-block p-3 ">
-          <img src={image} class="bd-placeholder-img border rounded-3"/>
+        <div class="col-auto d-none d-md-block px-auto  ">
+          <img src={image} class="bd-placeholder-img w-50 h-50 border rounded-3" />
         </div>
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success">Post</strong>
@@ -16,10 +16,10 @@ function Card({ image, title, text}) {
           </p>
           <a href="#" class="bg-primary text-light text-decoration-none mx-auto px-4 py-1 border rounded-2 bg-warning">
 
-           Contribute +
+            Contribute +
           </a>
         </div>
-        
+
       </div>
     </div>
   );

@@ -39,13 +39,7 @@ export const GalleryColumn = [
     field: "type",
     headerName: "Type",
     width: 160,
-    renderCell: (params) => {
-      return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
+    
   },
 ];
 
@@ -66,7 +60,7 @@ export const PostColumn = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          <img className="cellImg" src={params.row.imageUrl} alt="avatar" />
           {params.row.username}
         </div>
       );
@@ -108,7 +102,7 @@ export const ArtistColumn = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          <img className="cellImg" src={params.row.imageUrl} alt="avatar" />
           {params.row.username}
         </div>
       );
