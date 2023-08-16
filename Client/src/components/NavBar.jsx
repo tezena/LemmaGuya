@@ -25,7 +25,7 @@ function Navigation() {
    
 
             </Nav>
-            <Button variant="warning text-light" className=''>Donate</Button>
+            <Button variant="warning text-light" href='/donate' className=''>Donate</Button>
         </Navbar.Collapse>
         </>
       </Container>
