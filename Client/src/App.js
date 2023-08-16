@@ -13,7 +13,7 @@ import Payment from './pages/EduPayment';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Research from './pages/research';
-
+import Donate from './pages/donation';
 
 
 
@@ -31,6 +31,7 @@ function App() {
           <Route  path='/contact' element={<Contact /> }/>
           <Route path="/payment" element={<Payment/>}/>
           <Route path="/research" element={<Research/>}/>
+          <Route path="/donate" element={<Donate/>}/>
         </Routes> 
         <Footer />   
       </BrowserRouter>
