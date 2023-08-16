@@ -32,20 +32,20 @@ function Donate() {
 
       <div className="mt-5">
         <div className="row ">
-          <div className="col-12">
+          <div className="col-12 col-md-6 order-md-2">
             <img
               className="h-50"
               src="assets/images/lemma/l17.jpg"
               alt="Lemma Guya"
             />
-            <p className="px-4 opacity-50 pt-4 text-start">
+            <p className="px-4 opacity-50 pt-4 text-start col-12 col-md-10 mx-auto">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
               cupidatat non proident, sunt in culpa qui officia deserunt mollit
               anim id est laborum.
             </p>
           </div>
-          <div className="col-12 col-md-4 px-5 ">
+          <div className="col-12 col-md-4 px-5 order-md-1 mx-auto">
            
             <form className="pb-5 position-relative">
                 <div className="d-flex justify-content-between">  
@@ -98,7 +98,7 @@ function Donate() {
                 type="submit"
                 className="mb-4 bg-warning mt-4 position-absolute end-0 border border-0"
               >
-                Next
+                Donate
               </MDBBtn>
             </form>
           </div>
