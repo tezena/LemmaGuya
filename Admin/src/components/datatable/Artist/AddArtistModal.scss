@@ -1,0 +1,30 @@
+.addArtistModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .modalContent {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 9999; /* Add this line */
+  
+      h2 {
+        margin-bottom: 10px;
+      }
+  
+      .MuiTextField-root {
+        margin-bottom: 10px;
+      }
+  
+      .MuiButton-contained {
+        background-color: #007bff;
+        color: white;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  

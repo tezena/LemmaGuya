@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { ArtistColumn } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
+import  AddArtistModal from "./AddArtistModal";
 
 const Datatable = () => {
   const [data, setData] = useState([]);
@@ -21,6 +22,39 @@ const Datatable = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+
+  const [isAddModalOpen, setAddModalOpen] = useState(false);
+
+  const handleAddModalOpen = () => {
+    console.log("handleAddModalOpen");
+    setAddModalOpen(true);
+  };
+
+  const handleAddModalClose = () => {
+    setAddModalOpen(false);
+  };
+
+  const handleAddArtist = (newArtist) => {
+    // Send a POST request to the server to add the new artist
+    fetch("/api/artists", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newArtist),
+    })
+      .then((response) => response.json())
+      .then((addedArtist) => {
+        setData([...data, addedArtist]);
+        handleAddModalClose();
+      })
+      .catch((error) => {
+        console.error("Error adding artist:", error);
+      });
+  };
+
+
   
 const handleDelete = (id) => {
   // Send a DELETE request to the server to remove the blog post
@@ -58,13 +92,15 @@ const handleDelete = (id) => {
       },
     },
   ];
+
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
        <input type="text" placeholder="search" />
-        <Link to="/images/new" className="link">
-          Add New
-        </Link>
+        <button onClick={handleAddModalOpen} className="link">
+        Add New Artist
+      </button>
       </div>
       <DataGrid
         className="datagrid"
@@ -73,6 +109,14 @@ const handleDelete = (id) => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
+      />
+      <button onClick={handleAddModalOpen} className="link">
+        Add New Artist
+      </button>
+      <AddArtistModal
+        open={isAddModalOpen}
+        onClose={handleAddModalClose}
+        onAdd={handleAddArtist}
       />
     </div>
   );
