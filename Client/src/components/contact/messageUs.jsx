@@ -43,7 +43,7 @@ function MessageUs() {
               defaultChecked
             />
       
-            <MDBBtn type='submit' className='mb-4' block>
+            <MDBBtn type='submit' className='mb-4 bg-warning ' block>
               Send
             </MDBBtn>
       
