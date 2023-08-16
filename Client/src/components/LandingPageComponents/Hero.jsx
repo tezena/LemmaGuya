@@ -20,7 +20,7 @@ function HeroSection() {
       <div className="hero-bg text-light" style={{ height: "100vh" }}>
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 h-100 align-items-center rounded-3 border shadow-lg m-0">
           <div className="col-lg-6 p-3 p-lg-5 pt-lg-3 bg-black bg-opacity-50">
-            <h1 className="display-4 fw-bold lh-1">Lemma Guyya Foundation</h1>
+            <h1 className="display-4 fw-bold lh-1">Lemma Guya Foundation</h1>
             <p className="lead">
               Quickly design and customize responsive mobile-first sites with
               Bootstrap, the world’s most popular front-end open source toolkit,
