@@ -83,23 +83,31 @@ function Donate() {
                 type="email"
                 id=""
                 label="Email address"
-              />
+              /> 
+              <MDBRow className="pb-3">
+                <MDBCol >
+                <MDBInput className=" bg-warning fs-3 text-center fw-bold text-secondary" type="btn" value="$10" />
+                </MDBCol>
+                <MDBCol >
+                <MDBInput className=" bg-warning fs-3 text-center fw-bold text-secondary" type="btn" value="$20" />
+                </MDBCol>
+                <MDBCol >
+                <MDBInput className=" bg-warning fs-3 text-center fw-bold text-secondary" type="btn" value="$50" />
+                </MDBCol>
+                <MDBCol >
+                <MDBInput className=" bg-warning fs-3 text-center fw-bold text-secondary" type="btn" value="$100" />
+                </MDBCol>
+              </MDBRow>
+              <div class="input-group flex-nowrap py-3 ">
+  <span className="input-group-text bg-warning fs-3 fw-bold text-secondary " id="addon-wrapping">$</span>
+  <input type="text" class="form-control fs-5 fw-bold opacity-50" placeholder="Other amount" aria-label="other amount" aria-describedby="addon-wrapping" />
+              </div>
+              <div className="">
+              <h1 className="text-warning text-start fw-bold fs-2"> Choose  payment method</h1>
+              </div>
+                
              
-              <MDBInput
-                label="Readonly"
-                placeholder="Readonly input here..."
-                id="formControlReadOnly"
-                type="text"
-                readonly="true"
-                className="bg-white"
-              />
-
-              <MDBBtn
-                type="submit"
-                className="mb-4 bg-warning mt-4 position-absolute end-0 border border-0"
-              >
-                Donate
-              </MDBBtn>
+             
             </form>
           </div>
         </div>
