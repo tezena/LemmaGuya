@@ -105,7 +105,25 @@ function Donate() {
               <div className="">
               <h1 className="text-warning text-start fw-bold fs-2"> Choose  payment method</h1>
               </div>
-                
+              <div className="">
+                <div className=" d-flex flex-row justify-content-center  ">
+                <div className="bg-warning m-2  flex-row" style={{height:"40px" , width:"200px"}}>
+                    <img src="assets/images/social/master.png" style={{height:"30px",width:"70px"}} />
+                    <img src="assets/images/social/visa.png"/>
+                </div>
+                <div className="bg-warning m-2" style={{height:"40px" , width:"200px"}}>
+                  
+                  </div>
+                </div>
+                <div className=" d-flex flex-row justify-content-center  ">
+                <div className="bg-warning m-2" style={{height:"40px" , width:"200px"}}>
+                  
+                </div>
+                <div className="bg-warning m-2" style={{height:"40px" , width:"200px"}}>
+                  
+                  </div>
+                  </div>
+                </div>
              
              
             </form>
