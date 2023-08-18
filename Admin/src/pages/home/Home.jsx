@@ -3,8 +3,20 @@ import "./home.scss";
 import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
 import Table from "../../components/table/Table";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../../context/AuthenticationContext";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { user } = useAuthentication();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
   return (
     <div className="home">
       <Sidebar />
@@ -12,7 +24,6 @@ const Home = () => {
         {/* <Navbar /> */}
         <div className="widgets">
           <Widget type="image" />
-
           <Widget type="education" />
           <Widget type="research" />
           <Widget type="post" />

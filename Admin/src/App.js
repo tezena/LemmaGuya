@@ -13,18 +13,18 @@ import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import LoginComponent from "./pages/login/Login";
-
+import { AuthenticationProvider } from "./context/AuthenticationContext";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
+      <AuthenticationProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="images">
               <Route index element={<Gallery />} />
               <Route path=":userId" element={<Single />} />
@@ -73,12 +73,13 @@ function App() {
                 element={<New inputs={productInputs} title="Add New Product" />}
               />
             </Route>
-            <Route path="login">
+            {/* <Route path="login">
               <Route index element={<LoginComponent />} />
-            </Route>
+            </Route> */}
           </Route>
         </Routes>
       </BrowserRouter>
+      </AuthenticationProvider>
     </div>
   );
 }
