@@ -6,12 +6,14 @@ import Display from '../components/LandingPageComponents/Display'
 import Footer from '../components/Footer'
 import './page.css'
 import Carousel from '../components/carousel/myCarousel'
+import History from '../components/LandingPageComponents/history'
 function Home() {
   return (
     <>
     <HeroSection />
     <Art />
-    <Carousel />
+      <Carousel />
+      <History />
         
     </>
   )

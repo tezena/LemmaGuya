@@ -8,7 +8,8 @@ const imageRoutes = require('./routes/imagesRoute');
 const blogRoutes = require('./routes/blogsRoute');
 const eventsRoutes = require('./routes/eventsRoute');
 const researchRoutes = require('./routes/researchRoute');
-const artistRoutes = require('./routes/artistRoute')
+const artistRoutes = require('./routes/artistRoute');
+const studentRoutes=require('./routes/studentRoute')
 // Use the connectToDatabase function to establish the connection
 connectToDatabase();
 
@@ -22,7 +23,8 @@ app.use('/api', imageRoutes);
 app.use("/api/",blogRoutes);
 app.use("/api/",eventsRoutes);
 app.use("/api/",researchRoutes);
-app.use("/api/",artistRoutes)
+app.use("/api/", artistRoutes);
+app.use("/api/",studentRoutes)
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

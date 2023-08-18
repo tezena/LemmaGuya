@@ -14,6 +14,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Research from './pages/research';
 import Donate from './pages/donation';
+import PaymentForm2 from './components/Education/payment2';
 
 
 
@@ -31,7 +32,8 @@ function App() {
           <Route  path='/contact' element={<Contact /> }/>
           <Route path="/payment" element={<Payment/>}/>
           <Route path="/research" element={<Research/>}/>
-          <Route path="/donate" element={<Donate/>}/>
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/payment2" element={<PaymentForm2/>}/>
         </Routes> 
         <Footer />   
       </BrowserRouter>

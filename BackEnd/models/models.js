@@ -107,11 +107,33 @@ const addressSchema = new mongoose.Schema({
   
 const addressModel = mongoose.model('address', addressSchema);
   
+const studentSchema = mongoose.Schema({
+    fname: String,
+    lname:String,
+    phone: String,
+    department:String,
+    email: {
+        type: String,
+        unique: true,
+        trim: true,
+        lowercase: true,
+        validate: {
+            validator: function (value) {
+                // Basic email format validation using a regular expression
+                return /\S+@\S+\.\S+/.test(value);
+            },
+            message: props => `${props.value} is not a valid email address!`,
+        }
+    },
+   
+})
+
+const studentModel = mongoose.model("student", studentSchema);
 
 
 
 module.exports = {
-    imagesModel,blogsModel,artistModel,eventsModel,researchModel,addressModel
+    imagesModel,blogsModel,artistModel,eventsModel,researchModel,addressModel,studentModel
       
   }
 

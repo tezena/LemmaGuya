@@ -1,22 +1,50 @@
-import React from "react";
-import { ReactDOM } from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import {
   MDBInput,
   MDBCol,
   MDBRow,
-  MDBCheckbox,
   MDBBtn,
-  MDBIcon,
 } from "mdb-react-ui-kit";
 
 function PaymentForm() {
+  const [student, setStudent] = useState({
+    fname: "",
+    lname: "",
+    phone: "",
+    email: "",
+    department: "",
+  });
+
+  const handleAddStudent = () => {
+    // Send a POST request to the server to add the new student
+    fetch("/api/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(student),
+    })
+      .then((response) => response.json())
+      .then(() => {
+        // Reset form fields after successful submission
+        setStudent({
+          fname: "",
+          lname: "",
+          phone: "",
+          email: "",
+          department: "",
+        });
+        console.log("Student data sent successfully");
+      })
+      .catch((error) => {
+        console.error("Error adding student:", error);
+      });
+  };
+
   return (
-    <div className="row   ">
-      <div
-        className="col-md-5 d-none d-md-block w-50 pt-5"
-        style={{ height: "620px", backgroundColor: "#333333" }}
-      >
+    <div className="row">
+      <div className="col-md-5 d-none d-md-block w-50 pt-5" style={{ height: "620px", backgroundColor: "#333333" }}>
         <img
           src="assets/images/img6.png"
           className="w-50 h-50 mt-3"
@@ -37,22 +65,62 @@ function PaymentForm() {
         <form className="pb-5 position-relative">
           <MDBRow className="mb-4">
             <MDBCol>
-              <MDBInput id="" label="First name" />
+              <MDBInput
+                id=""
+                label="First name"
+      
+                onChange={(e) => setStudent({ ...student, fname: e.target.value })}
+              />
             </MDBCol>
             <MDBCol>
-              <MDBInput id="" label="Last name" />
+              <MDBInput
+                id=""
+                label="Last name"
+             
+                onChange={(e) => setStudent({ ...student, lname: e.target.value })}
+              />
             </MDBCol>
           </MDBRow>
-          <MDBInput className="mb-4" type="email" id="" label="Email address" />
+          <MDBInput
+            className="mb-4"
+            type="tel"
+            id=""
+            label="Phone number"
+       
+            onChange={(e) => setStudent({ ...student, phone: e.target.value })}
+          />
+          <MDBInput
+            className="mb-4"
+            type="email"
+            id=""
+            label="Email address"
+         
+            onChange={(e) => setStudent({ ...student, email: e.target.value })}
+          />
           <Dropdown className="mb-4">
-            <Dropdown.Toggle variant="warning w-100 text-white d-flex justify-content-between" id="dropdown-basic">
+          <Dropdown.Toggle variant="warning w-100 text-white d-flex justify-content-between" id="dropdown-basic">
               Dropdown Button
             </Dropdown.Toggle>
-
-            <Dropdown.Menu className="w-100  ">
-              <Dropdown.Item href="#/action-1" variant=" transparent warning">Traditional</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Digital Art</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Music</Dropdown.Item>
+            <Dropdown.Menu className="w-100">
+              <Dropdown.Item
+                href="#/action-1"
+                variant="transparent warning"
+                onClick={() => setStudent({ ...student, department: "Traditional" })}
+              >
+                Traditional
+              </Dropdown.Item>
+              <Dropdown.Item
+                href="#/action-2"
+                onClick={() => setStudent({ ...student, department: "Digital" })}
+              >
+                Digital Art
+              </Dropdown.Item>
+              <Dropdown.Item
+                href="#/action-3"
+                onClick={() => setStudent({ ...student, department: "Music" })}
+              >
+                Music
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <MDBInput
@@ -63,10 +131,14 @@ function PaymentForm() {
             readonly="true"
             className="bg-white"
           />
-
-          <MDBBtn type='submit' className='mb-4 bg-warning mt-4 position-absolute end-0 border border-0' >
-          Next
-        </MDBBtn>
+    
+          <MDBBtn
+            type="button"  // Change this to "submit" if you want to trigger form submission
+            onClick={handleAddStudent}
+            className="mt-3 mb-4 bg-warning position-absolute border border-0 text-start"
+          >
+            Next
+          </MDBBtn>
         </form>
       </div>
     </div>
