@@ -1,26 +1,58 @@
-import React from 'react';
-import './login.scss';
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthentication } from '../../context/AuthenticationContext';
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { login } = useAuthentication();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    try {
+      await login(username, password); // Call the login function
+      navigate('/home'); // Redirect to home on successful login
+    } catch (error) {
+      console.error('Login error:', error);
+      // Handle login error (e.g., show an error message to the user)
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-form">
         <div className="form-content">
           <h1>LGF Admin</h1>
           <h3>Login</h3>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="form-group">
               <label htmlFor="username">Username</label>
-              <input type="text" id="username" className="form-control" />
+              <input
+                type="text"
+                id="username"
+                className="form-control"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" className="form-control" />
+              <input
+                type="password"
+                id="password"
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <Link to="/" style={{ textDecoration: "none" }}>
-            <button type="submit" className="btn btn-primary">Login</button>
-            </Link>
+            <button type="submit" className="btn btn-primary">
+              Login
+            </button>
           </form>
+          <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
         </div>
       </div>
       <div className="login-image">
