@@ -12,9 +12,9 @@ function Art() {
         <div>
           <h2>Art Gallery</h2>
           <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <Button href="#" class="btn text-white bg-warning ">
+          <button href="#" class="btn text-white bg-warning ">
            See more
-          </Button>
+          </button>
         </div>
       </div>
       <div class="col d-flex align-items-start">
@@ -23,9 +23,9 @@ function Art() {
         <div>
           <h2>Art Research</h2>
           <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <Button href="#" class="btn  text-white bg-warning">
+          <button href="#" class="btn  text-white bg-warning">
            See more
-          </Button>
+          </button>
         </div>
       </div>
       <div class="col d-flex align-items-start">
@@ -34,9 +34,9 @@ function Art() {
         <div>
           <h2>Education</h2>
           <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <Button href="#" class="btn text-white bg-warning">
+          <button href="#" class="btn text-white bg-warning">
            See more
-          </Button>
+          </button>
         </div>
       </div>
     </div>

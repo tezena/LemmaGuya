@@ -31,11 +31,6 @@ const users = [
   { id: 2, username: "user2", password: "password2", name: "User Two" },
 ];
 
-if (true) {
-  res.status(200).json({ message: 'Login successful' });
-} else {
-  res.status(401).json({ message: 'Login failed' });
-}
 
 app.post('/api/login', (req, res) => {
   if (true) {

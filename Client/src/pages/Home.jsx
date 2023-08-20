@@ -11,9 +11,9 @@ function Home() {
   return (
     <>
     <HeroSection />
-    <Art />
-      <Carousel />
+        <Art />
       <History />
+      <Carousel />
         
     </>
   )
