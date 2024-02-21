@@ -16,7 +16,6 @@ exports.createBlog = async (req, res) => {
 exports.getAllBlogs = async (req, res) => {
   try {
     const blogs = await blogsModel.find();
-
     const response = blogs.map((blog) => ({
       id: blog._id,
       imageUrl: blog.imageUrl,

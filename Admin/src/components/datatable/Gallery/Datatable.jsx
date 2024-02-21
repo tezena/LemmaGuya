@@ -28,7 +28,7 @@ const Datatable = () => {
 
 
   const handleAdd = (newData) => {
-    // Send a POST request to the server to add the new artist
+   
     fetch("/api/images", {
       method: "POST",
       headers: {

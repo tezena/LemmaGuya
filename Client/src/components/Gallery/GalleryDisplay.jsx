@@ -18,8 +18,8 @@ useEffect(() => {
   fetch("http://localhost:5000/api/getimages")
   .then((response) => response.json())
   .then((jsonData) => {
-    setData(jsonData); // Update the state with fetched data
-    console.log(jsonData); // Log the fetched data
+    setData(jsonData); 
+    console.log(jsonData); 
   })
   .catch((error) => {
     console.error("Error fetching data:", error);

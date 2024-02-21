@@ -9,7 +9,9 @@ const blogRoutes = require('./routes/blogsRoute');
 const eventsRoutes = require('./routes/eventsRoute');
 const researchRoutes = require('./routes/researchRoute');
 const artistRoutes = require('./routes/artistRoute');
-const studentRoutes=require('./routes/studentRoute')
+const studentRoutes = require('./routes/studentRoute');
+const { default: axios } = require('axios');
+
 // Use the connectToDatabase function to establish the connection
 connectToDatabase();
 
@@ -39,29 +41,56 @@ app.post('/api/login', (req, res) => {
     res.status(401).json({ message: 'Login failed' });
   }
 });
-// app.post("/api/login", (req, res) => {
-//   const { username, password } = req.body;
-//   const user = users.find(
-//     (u) => u.username === username && u.password === password
-//   );
-//   if (user) {
-//     res.status(200).json({ id: user.id, name: user.name });
-//   } else {
-//     res.status(401).json({ message: "Invalid credentials" });
-//   }
-// });
 
-// app.get('/api/login', (req, res) => {
-//   const { username, password } = req.query;
 
-//   const user = users.find(u => u.username === username && u.password === password);
+app.get('/', (req, res) => {
+  res.render("index")
+})
 
-//   if (user) {
-//     res.json({ message: 'Login successful', user });
-//   } else {
-//     res.status(401).json({ message: 'Login failed: Invalid username or password' });
-//   }
-// });
+// initial payment endpoint
+app.post("/api/pay", async (req, res) => {
+
+       // chapa redirect you to this url when payment is successful
+      const CALLBACK_URL = "http://localhost:5000/api/verify-payment/"
+      const RETURN_URL = "http://localhost:5000/api/payment-success/"
+
+      // a unique reference given to every transaction
+      const TEXT_REF = "tx-myecommerce12345-" + Date.now()
+
+      // form data
+      const data = {
+          amount: '100', 
+          currency: 'ETB',
+          email: 'ato@ekele.com',
+          first_name: 'Ato',
+          last_name: 'Ekele',
+          tx_ref: TEXT_REF,
+          callback_url: CALLBACK_URL + TEXT_REF,
+          return_url: RETURN_URL
+      }
+
+      // post request to chapa
+      await axios.post(CHAPA_URL, data, config)
+          .then((response) => {
+              res.redirect(response.data.data.checkout_url)
+          })
+          .catch((err) => console.log(err))
+})
+
+// verification endpoint
+app.get("/api/verify-payment/:id", async (req, res) => {
+  
+      //verify the transaction 
+      await axios.get("https://api.chapa.co/v1/transaction/verify/" + req.params.id, config)
+          .then((response) => {
+              console.log("Payment was successfully verified")
+          }) 
+          .catch((err) => console.log("Payment can't be verfied", err))
+})
+
+app.get("/api/payment-success", async (req, res) => {
+  res.render("success")
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
