@@ -70,6 +70,14 @@ exports.Login = asyncHandler(async (req, res) => {
 });
 
 
+exports.GetAdmin = asyncHandler(async (req, res) => {
+  const { _id, name, email } =await AdminModel.findById(req.user.id)
+  
+  res.json({
+    id: _id,
+    name,
+  email});
+})
 
 
 const GenerateToken = (id) => {

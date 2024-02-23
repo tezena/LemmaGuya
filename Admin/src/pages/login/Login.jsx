@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import './login.scss'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../context/AuthenticationContext';
+
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -13,11 +15,11 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      await login(username, password); // Call the login function
-      navigate('/home'); // Redirect to home on successful login
+      await login(username, password); 
+      navigate('/home'); 
     } catch (error) {
       console.error('Login error:', error);
-      // Handle login error (e.g., show an error message to the user)
+     
     }
   };
 

@@ -20,65 +20,75 @@ function App() {
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <AuthenticationProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/" element={<Login />} /> */}
-            <Route path="images">
-              <Route index element={<Gallery />} />
-              <Route path=":userId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
-              />
-            </Route>
-            <Route path="education">
-              <Route index element={<Education />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
-            <Route path="posts">
-              <Route index element={<Post />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
-            <Route path="events">
-              <Route index element={<Event />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
-            <Route path="researchs">
-              <Route index element={<Research />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
-            <Route path="artists">
-              <Route index element={<Artist />} />
-              <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
-            {/* <Route path="login">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="images">
+                <Route index element={<Gallery />} />
+                <Route path=":userId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={<New inputs={userInputs} title="Add New User" />}
+                />
+              </Route>
+              <Route path="education">
+                <Route index element={<Education />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={
+                    <New inputs={productInputs} title="Add New Product" />
+                  }
+                />
+              </Route>
+              <Route path="posts">
+                <Route index element={<Post />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={
+                    <New inputs={productInputs} title="Add New Product" />
+                  }
+                />
+              </Route>
+              <Route path="events">
+                <Route index element={<Event />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={
+                    <New inputs={productInputs} title="Add New Product" />
+                  }
+                />
+              </Route>
+              <Route path="researchs">
+                <Route index element={<Research />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={
+                    <New inputs={productInputs} title="Add New Product" />
+                  }
+                />
+              </Route>
+              <Route path="artists">
+                <Route index element={<Artist />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={
+                    <New inputs={productInputs} title="Add New Product" />
+                  }
+                />
+              </Route>
+              {/* <Route path="login">
               <Route index element={<LoginComponent />} />
             </Route> */}
-          </Route>
-        </Routes>
-      </BrowserRouter>
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </AuthenticationProvider>
     </div>
   );

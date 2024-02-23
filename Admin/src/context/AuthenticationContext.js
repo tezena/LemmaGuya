@@ -6,12 +6,12 @@ const AuthenticationContext = createContext();
 export const AuthenticationProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login = async (name, password) => {
+  const login = async (email, password) => {
     try {
-      // Make an API call to authenticate the user
-      const response = await fetch("http://localhost:5000/api/login", {
+      
+      const response = await fetch("http://localhost:5001/api/admin/login", {
         method: "POST",
-        body: JSON.stringify({ name, password }),
+        body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -21,7 +21,7 @@ export const AuthenticationProvider = ({ children }) => {
 
       if (response.ok) {
         const userData = await response.json();
-        setUser(userData); // Set user data upon successful login
+        setUser(userData); 
       } else {
         throw new Error("Login failed");
       }
@@ -31,7 +31,7 @@ export const AuthenticationProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setUser(null); // Clear user data upon logout
+    setUser(null); 
   };
 
   return (
