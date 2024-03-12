@@ -6,6 +6,7 @@ import { useState,useEffect } from "react";
 import  AddArtistModal from "./AddArtistModal";
 import { Button } from "@mui/material";
 import "./AddArtistModal.scss"
+import ArtistEditForm from "./EditArtistmodal";
 
 
 const Datatable = () => {
@@ -28,6 +29,8 @@ const Datatable = () => {
 
 
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [artistId,setArtisId]=useState("")
 
   const handleAddModalOpen = () => {
     console.log("handleAddModalOpen");
@@ -35,8 +38,18 @@ const Datatable = () => {
   };
 
 
+  const handleEdit=(id)=>{
+
+      setEditModalOpen(true);
+      setArtisId(id);
+
+      console.log(`current id is ${id}`)
+       
+  }
+
+
   const handleAddArtist = (newArtist) => {
-    // Send a POST request to the server to add the new artist
+   
     fetch("/api/artists", {
       method: "POST",
       headers: {
@@ -57,19 +70,21 @@ const Datatable = () => {
 
   
 const handleDelete = (id) => {
-  // Send a DELETE request to the server to remove the blog post
+ 
   fetch(`/api/artists/${id}`, {
     method: "DELETE",
   })
     .then((response) => response.json())
     .then(() => {
-      // Remove the deleted blog post from the state
+  
       setData(data.filter((item) => item.id !== id));
     })
     .catch((error) => {
       console.error("Error deleting blog post:", error);
     });
 };
+
+
   const actionColumn = [
     {
       field: "action",
@@ -78,9 +93,9 @@ const handleDelete = (id) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">Edit</div>
-            </Link>
+  
+              <div className="viewButton" onClick={()=>handleEdit(params.row.id)}>Edit</div>
+          
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -115,6 +130,7 @@ const handleDelete = (id) => {
         open={isAddModalOpen}
         onAdd={handleAddArtist}
       />
+      <ArtistEditForm open={isEditModalOpen} onClose={()=>setEditModalOpen(false)}  artistId={artistId}/>
     </div>
   );
 };

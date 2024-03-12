@@ -33,7 +33,7 @@ exports.getArtistById = async (req, res) => {
       return res.status(404).json({ message: "Artist not found" });
     }
 
-    res.json(artist);
+    res.status(200).json(artist);
   } catch (error) {
     res.status(500).json({ message: "Error fetching artist", error });
   }
@@ -44,14 +44,14 @@ exports.updateArtistById = async (req, res) => {
   try {
     const artistId = req.params.id;
     const updatedArtist = await artistModel.findByIdAndUpdate(artistId, req.body, {
-      new: true, // Return the updated artist
+      new: true, 
     });
 
     if (!updatedArtist) {
       return res.status(404).json({ message: "Artist not found" });
     }
 
-    res.json(updatedArtist);
+    res.status(200).json(updatedArtist);
   } catch (error) {
     res.status(500).json({ message: "Error updating artist", error });
   }

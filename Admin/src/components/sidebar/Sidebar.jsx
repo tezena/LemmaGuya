@@ -7,6 +7,12 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import PagesOutlinedIcon from '@mui/icons-material/PagesOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import EventSeatOutlinedIcon from '@mui/icons-material/EventSeatOutlined';
+import PagesOutlined from "@mui/icons-material/PagesOutlined";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -31,13 +37,13 @@ const Sidebar = () => {
           <p className="title">LISTS</p>
           <Link to="/artists" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
+              <PeopleAltOutlinedIcon className="icon" />
               <span>Artist</span>
             </li>
           </Link>
           <Link to="/images" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
+              <CollectionsOutlinedIcon className="icon" />
               <span>Images</span>
             </li>
           </Link>
@@ -50,19 +56,19 @@ const Sidebar = () => {
           </Link>
           <Link to="/posts" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
+              <PagesOutlined className="icon" />
               <span>Posts</span>
             </li>
           </Link>
           <Link to="/events" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
+              <EventSeatOutlinedIcon className="icon" />
               <span>Events</span>
             </li>
           </Link>
           <Link to="/researchs" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
+              <ScienceOutlinedIcon className="icon" />
               <span>Research</span>
             </li>
             </Link>
