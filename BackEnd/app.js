@@ -11,6 +11,7 @@ const researchRoutes = require("./routes/researchRoute");
 const artistRoutes = require("./routes/artistRoute");
 const studentRoutes = require("./routes/studentRoute");
 const adminRoutes=require("./routes/adminRoute")
+const allDataNumRoutes=require("./routes/allDataRoute")
 const { default: axios } = require("axios");
 const dotenv = require("dotenv");
 
@@ -31,6 +32,7 @@ app.use("/api/", blogRoutes);
 app.use("/api/", eventsRoutes);
 app.use("/api/", researchRoutes);
 app.use("/api/", artistRoutes);
+app.use("/api/",allDataNumRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

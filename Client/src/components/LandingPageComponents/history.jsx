@@ -117,19 +117,15 @@ function History() {
       >
         <div className="col-12  col-md-8 mx-auto ">
           <div className="pt-5 row">
-            <motion.p
-        ref={ref5}
-              initial="hidden"
-              variants={textVariants}
-        animate={controls5} className="col-7 text-white opacity-75 text-start ms-3 p-2 mt-5 px-md-5 " style={{wordSpacing:"0.1px",lineHeight:"20px"}}> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div className="col-7 text-white opacity-75 text-start ms-3 p-2 mt-5 px-md-5 " style={{wordSpacing:"0.1px",lineHeight:"20px"}}> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum d
-              olore eu fugiat nulla pariatur.</motion.p>
+              olore eu fugiat nulla pariatur.</div>
               <div className="col-4  col-md-3 ">
-              <motion.div  initial="hidden"
+              <div initial="hidden"
         animate={controls4}
-                variants={imgVariants}><img ref={ref4} src="assets/images/lemma/l14.jpg" className="w-100 pt-5 mt-3 pt-md-3 " style={{ widt: "100%" }} /></motion.div>
+                variants={imgVariants}><img ref={ref4} src="assets/images/lemma/l14.jpg" className="w-100 pt-5 mt-3 pt-md-3 " style={{ widt: "100%" }} /></div>
        
          </div>
               
@@ -191,7 +187,7 @@ function History() {
       >
         <div className="col-12  col-md-8 mx-auto ">
           <div className="pt-5 row">
-            <motion.p
+            <div
         ref={ref8}
               initial="hidden"
               variants={textVariants}
@@ -199,17 +195,16 @@ function History() {
             Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum d
-              olore eu fugiat nulla pariatur.</motion.p>
+              olore eu fugiat nulla pariatur.</div>
               <div className="col-4  col-md-3 ">
-              <motion.div  initial="hidden"
+              <div  initial="hidden"
         animate={controls9}
-                variants={imgVariants}><img ref={ref9} src="assets/images/lemma/l13.jpg" className="w-100 pt-5 mt-3 pt-md-5 " style={{ widt: "100%" }} /></motion.div>
+                variants={imgVariants}><img ref={ref9} src="assets/images/lemma/l13.jpg" className="w-100 pt-5 mt-3 pt-md-5 " style={{ widt: "100%" }} /></div>
        
          </div>
               
           </div>
           
-         
           
         </div>
         <div className="col-12 d-none d-md-block col-md-4 ">

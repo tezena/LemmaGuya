@@ -130,6 +130,8 @@ export const ArtistColumn = [
     width: 250,
   },
 ];
+
+
 export const EducationColumn = [
   { field: "id", headerName: "ID", width: 70 },
   {

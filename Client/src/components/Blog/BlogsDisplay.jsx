@@ -8,7 +8,7 @@ function BlogsDisplay() {
   const [data, setData] = useState([]);
 
   useEffect(() => {  
-    fetch("http://localhost:5000/api/getblogs")
+    fetch("http://localhost:5001/api/getblogs")
     .then((response) => response.json())
     .then((jsonData) => {
       setData(jsonData); // Update the state with fetched data

@@ -15,7 +15,7 @@ function GalleryDisplay() {
   const [data, setData] = useState([]);
 
 useEffect(() => {  
-  fetch("http://localhost:5000/api/getimages")
+  fetch("http://localhost:5001/api/getimages")
   .then((response) => response.json())
   .then((jsonData) => {
     setData(jsonData); 

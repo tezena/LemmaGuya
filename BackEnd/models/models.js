@@ -10,7 +10,7 @@ const imagesSchema = mongoose.Schema({
     type: String,
    
 }, {
-    versionKey: false // This will prevent the __v field from being added to documents
+    versionKey: false 
 })
 
 const imagesModel = mongoose.model("image", imagesSchema);
